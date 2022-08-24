@@ -1,0 +1,37 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/miao_sha?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: user
+    password: zgt9321@qq.com
+    # springboot自带的数据库连接池
+    hikari:
+      pool-name: DateHikariCP
+      minimum-idle: 5
+      idle-timeout: 1800000
+      maximum-pool-size: 10
+      auto-commit: true
+      max-lifetime: 1800000
+      connection-timeout: 3000
+      connection-test-query: SELECT 1
+  redis:
+    timeout: 10000ms
+    host: 106.14.219.106
+    password: zgt9321@qq.com
+    port: 6379
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 2000ms
+        max-idle: 200
+
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+  type-aliases-package: com.jiao.entity
+logging:
+  level:
+    com.jiao.mapper: debug
